@@ -1,0 +1,9 @@
+header{
+    background-image: url("assets/bg-header-mobile.svg");
+    height: 155px;
+}
+
+main{
+    background-color: #F0FAFB;
+    height: calc(100vh);
+}
