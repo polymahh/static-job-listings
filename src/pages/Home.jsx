@@ -3,13 +3,11 @@ import Header from '../components/Header';
 import companies from '../Data/data.json';
 
 function Home() {
-  console.log(companies);
   return (
     <>
-      <header>
-        <Header />
-      </header>
+      <header />
       <main>
+        <Header />
         {companies.map((company) => (
           <CompanyCard key={company.id} company={company} />
         ))}
