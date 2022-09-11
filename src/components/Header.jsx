@@ -2,11 +2,9 @@ import { useContext } from 'react';
 import MyContext from '../MyContext';
 
 function Header() {
-  const { tags, setTags } = useContext(MyContext);
+  const { tags, clearTags, removeTag } = useContext(MyContext);
 
-  console.log(tags);
-
-  return (
+  return tags[0] ? (
     <div className="headContainer">
       <div className="tagPreview">
         {tags.map((tag, index) => {
@@ -14,15 +12,19 @@ function Header() {
           return (
             <div key={num} className="tagContainer">
               <span className="tag">{tag}</span>
-              <img src="images/icon-remove.svg" alt="remove" />
+              <button type="button" onClick={(e) => removeTag(tag)}>
+                <img src="images/icon-remove.svg" alt="remove" />
+              </button>
             </div>
           );
         })}
       </div>
-      <div className="clear">
+      <div className="clear" onClick={clearTags}>
         <h3>Clear</h3>
       </div>
     </div>
+  ) : (
+    <div>{/* empty */}</div>
   );
 }
 export default Header;
