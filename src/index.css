@@ -169,6 +169,9 @@ button{
     border: none;
 }
 
+.position{
+    cursor: pointer;
+}
 
 @media (min-width:850px){
     header{

@@ -14,11 +14,13 @@ function Home() {
   const search = (data) =>
     data.filter((comp) => {
       const jobTags = keys.map((key) => comp[key]).flat();
-      return jobTags.some((tag) => tags.includes(tag));
+      return tags.every((tag) => jobTags.includes(tag));
     });
 
   useEffect(() => {
-    setFiltered(search(companies));
+    if (tags[0]) {
+      setFiltered(search(companies));
+    } else setFiltered(companies);
   }, [tags]);
 
   return (
