@@ -3,7 +3,7 @@ import MyContext from './MyContext';
 import Home from './pages/Home';
 
 function App() {
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState(['Frontend', 'Junior']);
 
   const clearTags = () => {
     setTags([]);
