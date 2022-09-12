@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import MyContext from './MyContext';
 import Home from './pages/Home';
 
@@ -26,7 +26,9 @@ function App() {
 
   return (
     // eslint-disable-next-line react/react-in-jsx-scope
-    <MyContext.Provider value={{ tags, clearTags, addTag, removeTag }}>
+    <MyContext.Provider
+      value={useMemo(() => ({ tags, clearTags, addTag, removeTag }), [tags])}
+    >
       <div className="App">
         <Home />
       </div>
